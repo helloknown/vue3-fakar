@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-gray-100 min-h-screen f-c-c">
+  <div class="auto-bg bg-gray-100 min-h-screen f-c-c">
     <div
-      class="max-w-sm rounded-lg shadow-lg bg-white p-6 space-y-6 border border-gray-200 dark:border-gray-700 w-400px <sm:w-350px"
+      class="auto-bg2 max-w-sm rounded-lg shadow-lg bg-white p-6 space-y-6 border border-gray-200 dark:border-gray-700 w-400px <sm:w-350px"
     >
       <div class="space-y-2 text-center">
         <h1 class="text-3xl font-bold">
@@ -15,7 +15,7 @@
             <n-input v-model:value="loginData.username" placeholder="请输入邮箱" />
           </n-form-item>
           <n-form-item label="验证码" path="captcha">
-            <n-input v-model:value="loginData.captcha" placeholder="请输入验证码" style="{width: 100px;}" />
+            <n-input v-model:value="loginData.captcha" placeholder="请输入验证码" :style="{width: '100px'}" />
             <n-button type="default" round @click="getCaptcha" class="ml-4">获取验证码</n-button>
           </n-form-item>
           <n-form-item label="密码" path="password">
@@ -58,7 +58,7 @@ const formRules = ref({
   password: [
     {
       required: true,
-      validator(rule: FormItemRule, value: string) {
+      validator(_rule: FormItemRule, value: string) {
         if (!value) {
           passwordChked.value = false
           return new Error('请输入密码')
@@ -79,7 +79,7 @@ const formRules = ref({
       trigger: ['input', 'blur']
     },
     {
-      validator: (rule: FormItemRule, value: string): boolean => {
+      validator: (_rule: FormItemRule, value: string): boolean => {
         if (!passwordChked.value || value == '') {
           return true
         }
@@ -109,10 +109,10 @@ const getCaptcha = () => {}
 const register = () => {
   formRef.value?.validate((errors) => {
     if (!errors) {
-      window.$message?.success('验证成功')
+      window.$message?.success('注册成功')
       router.push('/login')
     } else {
-      window.$message?.error('验证失败')
+      window.$message?.error('注册失败')
     }
   })
 }

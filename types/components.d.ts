@@ -11,7 +11,6 @@ declare module 'vue' {
     CommpnPage: typeof import('./../src/components/common/CommpnPage.vue')['default']
     Footer: typeof import('./../src/components/common/Footer.vue')['default']
     Header: typeof import('./../src/components/common/Header.vue')['default']
-    HelloWorld: typeof import('./../src/components/HelloWorld.vue')['default']
     NBackTop: typeof import('naive-ui')['NBackTop']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']

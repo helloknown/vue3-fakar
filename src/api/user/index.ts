@@ -1,4 +1,4 @@
-import { get, post } from '@/utils/http'
+import { post } from '@/utils/http'
 
 enum URL {
   login = '/user/login',

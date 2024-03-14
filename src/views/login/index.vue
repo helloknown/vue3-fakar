@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-gray-100 min-h-screen f-c-c">
+  <div class="auto-bg bg-gray-100 min-h-screen f-c-c">
     <div
-      class="max-w-sm rounded-lg shadow-lg bg-white p-6 border border-gray-200 dark:border-gray-700 w-400px <sm:w-350px"
+      class="auto-bg2 max-w-sm rounded-lg shadow-lg bg-white p-6 border border-gray-200 dark:border-gray-700 w-400px <sm:w-350px"
     >
       <div class="text-center">
         <h1 class="text-3xl font-bold">
@@ -56,7 +56,7 @@ const formRules = ref({
   password: [
     {
       required: true,
-      validator(rule: FormItemRule, value: string) {
+      validator(_rule: FormItemRule, value: string) {
         if (!value) {
           return new Error('请输入密码')
         } else if (value.length < 8) {
@@ -79,10 +79,10 @@ const getCaptcha = () => {}
 const login = () => {
   formRef.value?.validate((errors) => {
     if (!errors) {
-      window.$message?.success('验证成功')
+      window.$message?.success('登录成功')
       router.push('/')
     } else {
-      window.$message?.error('验证失败')
+      window.$message?.error('登录失败')
     }
   })
 }
